@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'robotolight';
+    src: url('Roboto-Light-webfont.eot');
+    src: url('Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Roboto-Light-webfont.woff2') format('woff2'),
+         url('Roboto-Light-webfont.woff') format('woff'),
+         url('Roboto-Light-webfont.ttf') format('truetype'),
+         url('Roboto-Light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'sinkin_sans500_medium_italic';
+    src: url('SinkinSans-500MediumItalic-webfont.eot');
+    src: url('SinkinSans-500MediumItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('SinkinSans-500MediumItalic-webfont.woff2') format('woff2'),
+         url('SinkinSans-500MediumItalic-webfont.woff') format('woff'),
+         url('SinkinSans-500MediumItalic-webfont.ttf') format('truetype'),
+         url('SinkinSans-500MediumItalic-webfont.svg#sinkin_sans500_medium_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    font-family: 'robotolight', Arial, sans-serif;
+    font-weight: 300;
+    color: rgb(51, 51, 51);
+    background-color: rgb(239, 240, 242);
+    margin: 0;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    background-color: white;
+    text-transform: uppercase;
+    border: 1px solid lightgrey;
+    box-shadow: 0px 5px 15px lightgrey;
+}
+
+#en_tete{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#author_name{
+    color: inherit;
+    margin-left: 30px;    
+    font-family: Verdana, sans-serif;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#menu ul{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    margin: 0;
+}
+
+#menu li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 0.95em;
+}
+
+#menu a{
+    text-decoration: none;
+    color: #33586e;
+}
+
+#title_book{
+    margin-top: 80px;
+}
+
+main{
+    text-align: center;
+}
+
+#chapter h2{
+    font-size: 1.5em;
+}
+
+img{
+    width: 65%;
+}
+
+#content{
+    text-align: start;
+    margin: 50px 20px 50px 20px;
+}
+
+#comments{
+    clear: both;
+    background-color: white;
+    padding-top: 28px;
+    padding-bottom: 5px;
+    padding-left: 45px;
+    padding-right: 45px;
+    width: 65%;
+    margin: auto;
+}
+
+.comment_author{
+    color: #508CC7;
+    font-weight: bold;
+}
+
+.comment_date{
+    font-size: 0.9em;
+    color: rgba(51, 51, 51, 0.5);
+    font-weight: 600;
+}
+
+.signal_button{
+    
+}
+
+.comments{
+    text-align: left;
+}
+
+/*Ajouter un commentaire*/
+#add_comment{
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+#form_title{
+    width: 90%;
+    margin: auto;
+    padding-left: 8px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-size: 0.88em;
+}
+
+#author{
+    padding: 8px;
+}
+
+#comment{
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    height: 250px;
+}
+
+#author, #comment{
+    border: 1px solid rgba(51, 51, 51, 0.3);
+}
+
+#submit{
+    padding: 0.4em;
+    padding-right: 1.4em;
+    padding-left: 1.4em;
+    border-radius: 5px;
+    background-color: #435962;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#submit:hover{
+    background-color: rgb(51, 51, 51);
+}
+
+/*Footer*/
+footer{
+    margin-top: 30px;
+    padding-right: 3%;
+    padding-left: 6%;
+    display: flex;   
+    background-color: #435962;
+    color: white;
+}
+
+#pied_page{
+    display: flex;
+    align-items: center;
+}
+
+#footer_author{
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: Verdana, sans-serif;
+}
+
+#conditions{
+    font-family: 'sinkin_sans500_medium_italic', Arial, sans-serif;
+    font-size: 0.9em;
+    margin-left: 7%;
+}
+
+#merci{
+    font-weight: bold;
+}
