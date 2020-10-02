@@ -68,5 +68,12 @@ function recover($pseudo){
 	return $resultat;
 }
 
+function adminSuppChap($id){
+	$bdd = getBdd();
+    $reponse = $bdd->prepare('DELETE FROM articles WHERE id = ?');
+    $reponse->execute(array($id));
+    $resultat = $reponse->fetch();
+	return $resultat;
+}
 
 

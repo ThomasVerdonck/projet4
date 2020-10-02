@@ -3,46 +3,43 @@ $css = 'style.css';
 ?>
 
 <?php ob_start(); ?>
-	<section id="first">
-	    <div id="accueil">
-	    	<img src="images/foret_Alaska.jpg" alt="image_accueil">
-		</div>
-		<div id="presentation">
-			<h2 id="title_book">Billet simple pour l'Alaska</h2>
-			<p>Découvrez le nouveau roman de Jean Forteroche.</p>
-			<button id="aventure"><a href="index.php?action=listAllPosts">Partez à l'aventure</a></button>
-		</div>
-	</section>
-	<h2>Dernières publications</h2>
+		<section id="first" class="row">
+		    <div id="accueil" class="col">
+		    	<img src="images/foret_Alaska.jpg" alt="image_accueil">
+			</div>
+			<div id="presentation">
+				<h1 id="title_book">Billet simple pour l'Alaska</h1>
+				<p>Découvrez le nouveau roman de Jean Forteroche.</p>
+				<button id="aventure"><a href="index.php?action=listAllPosts">Partez à l'aventure</a></button>
+			</div>
+		</section>
+		<h2>Dernières publications</h2>
 
-	<section id="second">
-	<?php 
-	while ($donnees = $lastPosts->fetch())//la variable $lastPosts est automatiquement transmise par front_controller.php grâce au require
-	{
-		//var_dump($donnees);
-		//die();
-	?>			
-	    <div class="last_posts">
-	    	<div class="img_posts">
-	    		
-	    			<img src="images/chiens_de_traineau.jpg" alt="paysage_Alaska">
-	    	</div>	
-			<aside class="start_of_post">
-				<p id="date_post"><?php echo $donnees['creation_date_fr'];?></p>
-				<h3 class="title_post">Billet simple pour l'Alaska</h3>
-				<p class="title_chapter"><?php echo $donnees['titre'];?></p>
-				<p class="start_of_content"><?php echo $donnees['contenu'];?></p>
-				<p class="decouvrir">
-					<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="show_more">Découvrir</a>
-				</p>
-			</aside>
-		</div>
-				
-	<?php
-	}
-	$lastPosts->closeCursor();
-	?>
-	</section>
+		<section id="second" class="row mt-4">
+		<?php 
+		while ($donnees = $lastPosts->fetch())//la variable $lastPosts est automatiquement transmise par front_controller.php grâce au require
+		{
+			//var_dump($donnees);
+			//die();
+		?>			
+		    <div class="col-12 col-md-4">
+		    	<div class="card mb-4 mb-lg-0">
+		    		<img class="card-img-top" src="images/chiens_de_traineau.jpg" alt="paysage_Alaska">
+          			<div class="card-body">
+						<p class="card-text" id="date_post"><?php echo $donnees['creation_date_fr'];?></p>
+						<h3 class="card-title">Billet simple pour l'Alaska</h3>
+						<h4 class="card-title"><?php echo $donnees['titre'];?></h4>
+						<p class="card-text"><?php echo $donnees['contenu'];?></p>						
+						<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="show_more">Découvrir</a>						
+					</div>
+				</div>
+			</div>
+					
+		<?php
+		}
+		$lastPosts->closeCursor();
+		?>
+		</section>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

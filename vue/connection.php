@@ -3,8 +3,8 @@ $css = 'style5.css';
 ?>
 
 <?php ob_start(); ?>
-<section id="administration">
-	<div id="connection_pic">
+<section class="row" id="administration">
+	<div class="col" id="connection_pic">
 		<p id="admin">Espace réservé aux administrateurs</p>
 	</div>
 </section>

@@ -33,63 +33,20 @@ body {
 }
 
 header{
-    position: fixed;
-    width: 100%;
-    top: 0;
-    height: 69px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
-    background-color: white;
     text-transform: uppercase;
-    border: 1px solid lightgrey;
-    box-shadow: 0px 5px 15px lightgrey;
-}
-
-#en_tete{
-    display: flex;
-    justify-content: space-between;
-    height: 50px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-#author_name{
-    color: inherit;
-    margin-left: 30px;    
-    font-family: Verdana, sans-serif;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
 }
 
 #menu ul{
     display: flex;
-    flex-direction: row;
     height: 50px;
     align-items: center;
-    margin: 0;
 }
 
 #menu li{
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 90px;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 0.95em;
-}
-
-#menu a{
-    text-decoration: none;
-    color: #33586e;
-}
-
-#title_book{
-    margin-top: 80px;
 }
 
 main{
@@ -98,6 +55,11 @@ main{
 
 #chapter h2{
     font-size: 1.5em;
+}
+
+#chapter h3{
+    font-size: 1em;
+    color: rgba(51, 51, 51, 0.5);
 }
 
 img{
@@ -120,6 +82,10 @@ img{
     margin: auto;
 }
 
+#comments h2{
+    text-align: center;
+}
+
 .comment_author{
     color: #508CC7;
     font-weight: bold;
@@ -131,24 +97,19 @@ img{
     font-weight: 600;
 }
 
-.signal_button{
-    
-}
-
 .comments{
     text-align: left;
 }
 
-/*Ajouter un commentaire*/
+/*Formulaire Ajouter un commentaire*/
 #add_comment{
-    background-color: white;
-    width: 50%;
-    margin: auto;
     margin-top: 40px;
     padding: 30px;
-    padding-top: 20px;
-    padding-bottom: 15px;
 }
+
+#add_comment h2, #form_title{
+    text-align: center;
+}    
 
 #form_title{
     width: 90%;
@@ -159,30 +120,10 @@ img{
     font-size: 0.88em;
 }
 
-#author{
-    padding: 8px;
-}
-
-#comment{
-    justify-content: center;
-    width: 90%;
-    margin: auto;
-    height: 250px;
-}
-
-#author, #comment{
-    border: 1px solid rgba(51, 51, 51, 0.3);
-}
 
 #submit{
-    padding: 0.4em;
-    padding-right: 1.4em;
-    padding-left: 1.4em;
-    border-radius: 5px;
     background-color: #435962;
-    color: white;
     text-transform: uppercase;
-    cursor: pointer;
 }
 
 #submit:hover{
@@ -190,12 +131,11 @@ img{
 }
 
 /*Footer*/
+#bg-footer{
+    background-color: #435962!important;
+}
+
 footer{
-    margin-top: 30px;
-    padding-right: 3%;
-    padding-left: 6%;
-    display: flex;   
-    background-color: #435962;
     color: white;
 }
 

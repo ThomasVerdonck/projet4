@@ -33,65 +33,20 @@ body {
 }
 
 header{
-    position: fixed;
-    width: 100%;
-    top: 0;
-    height: 69px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
-    background-color: white;
     text-transform: uppercase;
-    border: 1px solid lightgrey;
-    box-shadow: 0px 5px 15px lightgrey;
-}
-
-main{
-    width: 65%;
-    margin: auto;
-    margin-top: 90px;
-}
-
-#en_tete{
-    display: flex;
-    justify-content: space-between;
-    height: 50px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-#author_name{
-    color: inherit;
-    margin-left: 30px;    
-    font-family: Verdana, sans-serif;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
 }
 
 #menu ul{
     display: flex;
-    flex-direction: row;
     height: 50px;
     align-items: center;
-    margin: 0;
 }
 
 #menu li{
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 90px;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 0.95em;
-}
-
-#menu a{
-    text-decoration: none;
-    color: #33586e;
 }
 
 /*Section accueil*/
@@ -115,20 +70,19 @@ main{
     padding-bottom: 10px;
 }
 
+#presentation h1{
+    text-transform: uppercase;
+}
+
 #title_book{
     font-size: 2.5em;
     font-style: italic;
-    margin: 10px auto;
-    height: auto;
-    line-height: 54px;
 }
 
 #presentation p{
-    font-family: 'Meddon', cursive;
+    font-family: cursive;
     font-size: 1.6em;
-    text-align: center;
     margin: 20px auto;
-    height: auto;
     line-height: 34px;
 }
 
@@ -156,51 +110,10 @@ h2 {
     text-align: center;
 }
 
-.last_posts{
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    margin: auto;
-    margin-bottom: 30px;
-}
-
-.img_posts img{
-    width: 100%;
-}
-
-.start_of_post {
-    background-color: white;
-    padding: 0px 10px 0px 10px;
-}
-
 #date_post {
     font-size: 1em;
     text-align: left;
     color: rgba(51, 51, 51, 0.5);
-}
-
-.title_post{
-    font-size: 1.2em;
-    margin: 0;
-    margin-bottom: 10px;
-    font-family: 'Cormorant SC';
-    text-transform: uppercase;
-}
-
-.title_chapter {
-    font-family: "Cormorant SC";
-    text-transform: uppercase;
-    font-size: 1.3em;
-    margin-bottom: 0;
-    margin-top: 10px;
-}
-
-.start_of_content{
-    font-size: 0.9em;
-    width: 100%;
-    overflow: hidden;
-    line-height: 1.5em;
-    margin-bottom: 1.8em;
 }
 
 .show_more{
@@ -208,21 +121,16 @@ h2 {
     background-color: #435962;
     color: white;
     text-transform: uppercase;
-    font-size: 1.1em;
+    font-size: 0.9em;
     padding: 0.3em 2.3em 0.3em 2.3em;
     margin-bottom: 1.2em;
     letter-spacing: 0.15em;
     cursor: pointer;
 }
 
-/*Footer*/
-footer{
-    margin-top: 30px;
-    padding-right: 3%;
-    padding-left: 6%;
-    display: flex;   
-    background-color: #435962;
-    color: white;
+/*Pied de page*/
+footer{  
+    color: #33586e;    
 }
 
 #pied_page{
@@ -244,4 +152,15 @@ footer{
 
 #merci{
     font-weight: bold;
+}
+
+
+@media only screen and (max-width: 768px)
+{
+    #title_book{
+        font-size: 1.9em;
+    }
+
+    #presentation p{
+        font-size: 1.1em;
 }

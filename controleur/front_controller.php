@@ -51,12 +51,11 @@ function addUser($pseudo, $pass){
     // Comparaison du pass envoyé via le formulaire avec la base
     $isPasswordCorrect = password_verify($pass, $resultat['password']);        
     if ($isPasswordCorrect === false) {
-        echo htmlspecialchars('Mauvais identifiant ou mot de passe !'); //die ou echo?
+        echo htmlspecialchars('Mauvais identifiant ou mot de passe !');
     }
     else {// Création des variables de session pour y stocker le pseudo de l'admin 
         $_SESSION['pseudo'] = $pseudo;
-        //$lastPosts = getLastPosts();
-        require('vue/dashboard.php');//afficher ici la vue TdB avec require
+        require('vue/dashboard.php');// on affiche la vue TdB avec require
         //echo 'Vous êtes connecté !';
     }
 }
@@ -65,5 +64,15 @@ function addUser($pseudo, $pass){
 function disconnect(){
     $_SESSION = array();
     session_destroy();
-    header("Location: http://localhost:81/projet_4/index.php?action=listLastPosts");
+    header("Location: http://localhost:83/projet_4/index.php?action=listLastPosts");
+}
+
+function allPostsAdmin(){
+    $allPosts = getAllPosts();
+    require('vue/allPostsAdmin.php');
+}
+
+function suppChap($id){
+    $suppChap = adminSuppChap($id);
+    allPostsAdmin();
 }

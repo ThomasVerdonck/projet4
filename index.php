@@ -21,6 +21,13 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'disconnect') {
         disconnect();
     }
+    elseif ($_GET['action'] == 'listAllPostsAdmin') {
+        allPostsAdmin();
+    }
+    elseif ($_GET['action'] == 'suppChap') {
+        $id = $_GET['id'];
+        suppChap($id);
+    }
     elseif ($_GET['action'] == 'create_post') {
         if (isset($_SESSION['pseudo'])) {
             require('vue/create_post.php');
