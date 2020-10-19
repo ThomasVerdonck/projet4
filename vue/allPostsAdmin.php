@@ -1,17 +1,19 @@
-<?php $title = 'Jean Forteroche'; 
+<?php $title = 'Liste de tous les articles'; 
 $css = 'style7.css';
 ?>
 
 <?php ob_start(); ?>
 
-<section>
-	<h2>Tous les chapitres</h2>
-	<table>
-		<thead>
+<p><a href="index.php?action=dashboard">Retour au Tableau de bord</a></p>
+
+<h2>Tous les chapitres</h2>
+<div class="table-responsive-sm mt-3">
+	<table class="table table-bordered">
+		<thead class="thead-light">
 			<tr>
-				<th>Titre</th>
-				<th>Contenu</th>
-				<th>Actions</th>
+				<th scope="col">Titre</th>
+				<th scope="col">Supprimer</th>
+				<th scope="col">Modifier</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -20,17 +22,16 @@ $css = 'style7.css';
 			?>			
 				<tr>
 					<td><?php echo htmlspecialchars($donnees['titre']); ?></td>
-					<td><a class="btn btn-primary" href="<?php echo "index.php?action=suppChap&id=".$donnees['id']?>">Supprimer</a></td><!--Bouton Supprimer-->
-					<td><a class="btn btn-primary" href="#">Modifier</a></td><!--Bouton Modifier-->
-				</tr>					
+					<td><a class="btn btn-primary" href="<?php echo "index.php?action=suppChap&id=".$donnees['id']?>">Supprimer</a></td>
+					<td><a class="btn btn-primary" href="<?php echo "index.php?action=modifChap&id=".$donnees['id']?>">Modifier</a></td>
+				</tr>
 			<?php
 			}
 			$allPosts->closeCursor();
 			?>
 		</tbody>
 	</table>
-</section>
-
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

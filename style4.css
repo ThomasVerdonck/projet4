@@ -36,15 +36,7 @@ header{
     text-transform: uppercase;
 }
 
-#menu ul{
-    display: flex;
-    height: 50px;
-    align-items: center;
-}
-
 #menu li{
-    display: flex;
-    align-items: center;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -66,14 +58,10 @@ h2{
     justify-content: center;
 }
 
-/*Footer*/
+/*Pied de page*/
 footer{  
-    color: #33586e;    
-}
-
-#pied_page{
-    display: flex;
-    align-items: center;
+    color: #33586e;
+    text-align: center;    
 }
 
 #footer_author{
@@ -84,10 +72,9 @@ footer{
 
 #conditions{
     font-family: 'sinkin_sans500_medium_italic', Arial, sans-serif;
-    font-size: 0.9em;
-    margin-left: 7%;
+    font-size: 0.7em;
 }
 
-#merci{
+#merci, #openclass{
     font-weight: bold;
 }

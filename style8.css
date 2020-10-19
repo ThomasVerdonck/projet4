@@ -41,38 +41,27 @@ header{
     padding-right: 20px;
 }
 
-h2 {
-    text-transform: uppercase;
+
+#admin{
     text-align: center;
-}
-
-#date_post {
-    color: rgba(51, 51, 51, 0.5);
-}
-
-.show_more{
-    background-color: #435962;
-    color: white;
+    font-weight: bold;
+    font-size: 2.3em;
     text-transform: uppercase;
-    font-size: 0.9em;
-    padding: 0.3em 2.3em 0.3em 2.3em;
-    letter-spacing: 0.15em;
 }
 
-.show_more:hover{
-    color: white !important;
-    text-decoration: none !important;
-    background-color: #007bff;   
+h2, #form_title{
+    text-align: center;
+}    
+
+#form_title{
+    width: 90%;
+    margin: auto;
+    padding-left: 8px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-size: 0.88em;
 }
 
-#btn{
-    transition-property: transform;
-    transition-duration: 200ms;
-}
-
-#btn:hover{
-    transform:scale(1.1);
-}
 
 /*Pied de page*/
 footer{  
@@ -93,11 +82,4 @@ footer{
 
 #merci, #openclass{
     font-weight: bold;
-}
-
-@media only screen and (max-width: 768px)
-{
-    h2{
-        font-size: 1.5em !important;
-    }
 }

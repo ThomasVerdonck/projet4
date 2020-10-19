@@ -6,24 +6,23 @@ $css = 'style3.css';
 	    	
 <h2>Tous les épisodes déja en ligne</h2>
 
-<section id="last">
+<section class="row mt-4">
 <?php 
 while ($donnees = $allPosts->fetch())//la variable $lastPosts est automatiquement transmise par front_controller.php grâce au require
 {
 ?>			
-	<div class="all_posts">
-		<figure class="figure">
-			<img src="images/chiens_de_traineau.jpg" alt="paysage_Alaska">
-		</figure>
-		<aside class="start_of_post">
-			<p id="date_post"><?php echo $donnees['creation_date_fr'];?></p>
-			<h3 class="title_post">Billet simple pour l'Alaska</h3>
-			<p class="title_chapter"><?php echo $donnees['titre'];?></p>
-			<p class="start_of_content"><?php echo $donnees['contenu'];?></p>
-			<p class="decouvrir">
-				<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="show_more">Découvrir</a>
-			</p>
-		</aside>
+	<div class="col-12 col-md-4 my-3">
+		<div class="card mb-4 mb-lg-0">
+    		<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>"><img class="card-img-top" src="images/chiens_de_traineau.jpg" alt="paysage_Alaska"></a>
+  			<div class="card-body">
+				<p class="card-text" id="date_post"><?php echo $donnees['creation_date_fr'];?></p>
+				<h3 class="card-title">Billet simple pour l'Alaska</h3>
+				<h4 class="card-title"><?php echo $donnees['titre'];?></h4>
+				<p class="card-text"><?php echo substr($donnees['contenu'], 0, 100);?></p>						
+				<p id="btn"><a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="show_more">Découvrir</a>						
+				</p>
+			</div>
+		</div>
 	</div>
 			
 <?php

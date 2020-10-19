@@ -5,15 +5,17 @@ $css = 'style6.css';
 <?php ob_start(); ?>
 
 <section class="row" id="section_admin">
-	<h2>Espace Admin</h2>
-	<nav id="menu_admin">
-        <ul id="liste_admin">
-        	<li><a href="index.php?action=create_post">Créer un article</a></li>
-        	<li><a href="index.php?action=listAllPostsAdmin">Voir tous les articles</a></li>
-        	<li><a href="index.php?action=createPosts">Créer des articles</a></li>
-        	<li><a href="">Gérer les commentaires signalés</a></li>
-        </ul>		           	
-    </nav>
+	<div class="col-12">
+		<h2>Espace Administration</h2>
+		<br>
+		<nav id="menu_admin">
+	        <ul id="liste_admin">
+	        	<li><a href="index.php?action=create_post">Créer un article</a></li>
+	        	<li><a href="index.php?action=listAllPostsAdmin">Voir tous les articles</a></li>
+	        	<li><a href="index.php?action=manageComments">Gérer les commentaires signalés</a></li>
+	        </ul>		           	
+	    </nav>
+	</div>
 </section>
 
 

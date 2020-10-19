@@ -15,7 +15,6 @@ function post($id)
 {
     $post = getPost($id);// ces 2 fonctions getPost et getComments se trouvent dans model.php
     $comments = getComments($id);
-
     require('vue/postView.php');//On charge le fichier de la vue postView.php qui affiche l'article et ses commentaires
 }
 
@@ -64,7 +63,7 @@ function addUser($pseudo, $pass){
 function disconnect(){
     $_SESSION = array();
     session_destroy();
-    header("Location: http://localhost:83/projet_4/index.php?action=listLastPosts");
+    header("Location: index.php?action=listLastPosts");
 }
 
 function allPostsAdmin(){
@@ -72,7 +71,49 @@ function allPostsAdmin(){
     require('vue/allPostsAdmin.php');
 }
 
+function addChap($title, $content){
+    $addChap = adminAddChap($title, $content);
+    if ($addChap === false) {
+        die('Impossible d\'ajouter l\'article !');
+    }
+    else {
+        header("Location: index.php?action=listAllPostsAdmin");
+    }
+}
+
 function suppChap($id){
     $suppChap = adminSuppChap($id);
     allPostsAdmin();
+}
+
+function modifChap($id){
+    $modifChap = modifAdminChap($id);
+    require('vue/modify_post.php');
+
+}
+
+function updateChap($id){
+    $updateChap = updateAdminChap($id);
+    header('Location: index.php?action=listAllPostsAdmin');
+}
+
+function reportedComment($id){
+    reportedCom($id);
+    header('Location: index.php?action=showPost&id=' . $_GET['postId']);    
+}
+
+function suppCom($id){
+    $suppCom = adminSuppCom($id);
+    header('Location: index.php?action=manageComments');
+}
+
+function letCom($id){
+    $letCom = adminLetCom($id);
+    header('Location: index.php?action=manageComments');
+
+}
+
+function allReportedComments(){
+    $allReportedComments = getAllReportedComments();
+    require('vue/reported_comments.php');
 }

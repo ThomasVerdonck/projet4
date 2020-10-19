@@ -41,37 +41,8 @@ header{
     padding-right: 20px;
 }
 
-h2 {
-    text-transform: uppercase;
+table, h2{
     text-align: center;
-}
-
-#date_post {
-    color: rgba(51, 51, 51, 0.5);
-}
-
-.show_more{
-    background-color: #435962;
-    color: white;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    padding: 0.3em 2.3em 0.3em 2.3em;
-    letter-spacing: 0.15em;
-}
-
-.show_more:hover{
-    color: white !important;
-    text-decoration: none !important;
-    background-color: #007bff;   
-}
-
-#btn{
-    transition-property: transform;
-    transition-duration: 200ms;
-}
-
-#btn:hover{
-    transform:scale(1.1);
 }
 
 /*Pied de page*/
@@ -95,9 +66,9 @@ footer{
     font-weight: bold;
 }
 
-@media only screen and (max-width: 768px)
-{
-    h2{
-        font-size: 1.5em !important;
-    }
+#bg-footer{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
 }

@@ -24,27 +24,11 @@
 
 }
 
-body {
-    font-family: 'robotolight', Arial, sans-serif;
-    font-weight: 300;
-    color: rgb(51, 51, 51);
-    background-color: rgb(239, 240, 242);
-    margin: 0;
-}
-
 header{
     text-transform: uppercase;
 }
 
-#menu ul{
-    display: flex;
-    height: 50px;
-    align-items: center;
-}
-
 #menu li{
-    display: flex;
-    align-items: center;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -68,14 +52,12 @@ header{
     opacity: 0.8;
     color: #33586e;
     padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 #presentation h1{
     text-transform: uppercase;
-}
-
-#title_book{
-    font-size: 2.5em;
     font-style: italic;
 }
 
@@ -91,8 +73,6 @@ header{
     padding: 8px;
     border: transparent;
     border-radius: 6px 6px 6px 6px;
-    text-transform: uppercase;
-    cursor: pointer;
 }
 
 #aventure a{
@@ -102,40 +82,42 @@ header{
 
 /*Section derniers billets*/
 h2 {
-    font-size: 1.1em;
-    font-weight: normal;
     text-transform: uppercase;
-    margin: 15px;
-    margin-left: 0;
     text-align: center;
 }
 
 #date_post {
-    font-size: 1em;
-    text-align: left;
     color: rgba(51, 51, 51, 0.5);
 }
 
 .show_more{
-    text-decoration: none;
     background-color: #435962;
     color: white;
     text-transform: uppercase;
     font-size: 0.9em;
     padding: 0.3em 2.3em 0.3em 2.3em;
-    margin-bottom: 1.2em;
     letter-spacing: 0.15em;
-    cursor: pointer;
+}
+
+.show_more:hover{
+    color: white !important;
+    text-decoration: none !important;
+    background-color: #007bff; 
+}
+
+#btn{
+    transition-property: transform;
+    transition-duration: 200ms;
+}
+
+#btn:hover{
+    transform:scale(1.1);
 }
 
 /*Pied de page*/
 footer{  
-    color: #33586e;    
-}
-
-#pied_page{
-    display: flex;
-    align-items: center;
+    color: #33586e;
+    text-align: center;    
 }
 
 #footer_author{
@@ -146,21 +128,40 @@ footer{
 
 #conditions{
     font-family: 'sinkin_sans500_medium_italic', Arial, sans-serif;
-    font-size: 0.9em;
-    margin-left: 7%;
+    font-size: 0.7em;
 }
 
-#merci{
+#merci, #openclass{
     font-weight: bold;
 }
 
 
 @media only screen and (max-width: 768px)
 {
-    #title_book{
-        font-size: 1.9em;
+    h1, h2{
+        font-size: 1.9em !important;
     }
 
     #presentation p{
         font-size: 1.1em;
+}
+
+@media only screen and (max-width: 480px)
+{
+    h1, h2{
+        font-size: 1.4em !important;
+    }
+
+    #presentation p{
+        font-size: 0.9em;
+    }
+
+    #presentation{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 10px;
+    }
 }
