@@ -6,14 +6,14 @@ class PostManager extends Manager
     public function getLastPosts()
     {
         $bdd = $this->getBdd();
-        $reponse = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles ORDER BY creation_date DESC LIMIT 0, 3');
+        $reponse = $bdd->query('SELECT id, titre, contenu, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles ORDER BY creation_date DESC LIMIT 0, 3');
         return $reponse;
     }
 
     public function getPost($postId)//récupère un post précis en fonction de son ID
     {
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles WHERE id = ?');
+        $reponse = $bdd->prepare('SELECT id, titre, contenu, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles WHERE id = ?');
         $reponse->execute(array($postId));
         $post = $reponse->fetch();
         return $post;
@@ -22,7 +22,7 @@ class PostManager extends Manager
     public function getAllPosts()
     {
         $bdd = $this->getBdd();
-        $reponse = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles ORDER BY creation_date');
+        $reponse = $bdd->query('SELECT id, titre, contenu, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles ORDER BY creation_date');
         return $reponse;
     }
 
@@ -35,10 +35,10 @@ class PostManager extends Manager
         return $resultat;
     }
     //POUR CREER UN ARTICLE
-    public function adminAddChap($title, $content){
+    public function adminAddChap($title, $content, $fileName){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('INSERT INTO articles(titre, contenu, creation_date) VALUES(?, ?, NOW())');
-        $addChap = $reponse->execute(array($title, $content));
+        $reponse = $bdd->prepare('INSERT INTO articles(titre, contenu, image, creation_date) VALUES(?, ?, ?, NOW())');
+        $addChap = $reponse->execute(array($title, $content, $fileName));
         return $addChap;
     }
     // SUPPRIMER UN ARTICLE
@@ -57,6 +57,13 @@ class PostManager extends Manager
         $modifChap = $reponse->execute(array($id));
         $result = $reponse->fetch();
         return $result;
+    }
+
+    public function updateAdminChapWithPic($id, $fileName){
+        $bdd = $this->getBdd();
+        $reponse = $bdd->prepare('UPDATE articles SET titre = ?, contenu = ?, image = ? WHERE id = ?');
+        $reponse->execute(array($_POST['title'], $_POST['content'], $fileName, $id));
+        return $reponse;
     }
 
     public function updateAdminChap($id){

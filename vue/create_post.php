@@ -14,21 +14,26 @@ $css = 'style8.css';
 	<div class="col" class="border-primary">
         <h2>Ajouter un article</h2>
         <p id="form_title">*Tous les champs sont obligatoires</p>    
-        <form action="index.php?action=addChap" method="post">
+        <form enctype="multipart/form-data" action="index.php?action=addChap" method="post">
             <div class="form-group">
                 <label for="title">Titre*</label><br />
                 <input type="text" class="form-control" name="title" required/>
             </div>
             <div class="form-group">
+                <label for="file">Image*</label><br />
+                <input type="file" class="form-control" name="file"/>                
+            </div>
+            <div class="form-group">
                 <label for="content">Contenu*</label><br />
                 <textarea class="form-control" id="mytextarea" name="content"></textarea>
-            </div>
+            </div>            
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" id="submit" value="Ajouter"/>
             </div>
         </form>
     </div>    
 </section>
+
 
 <?php $content = ob_get_clean(); ?>
 

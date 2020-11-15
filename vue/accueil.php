@@ -20,13 +20,13 @@ $css = 'style.css';?>
 	{
 	?>			
 	    <div class="col-12 col-md-4">
-	    	<div class="card mb-4 mb-lg-0">
-	    		<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>"><img class="card-img-top" src="images/chiens_de_traineau.jpg" alt="paysage_Alaska"></a>
+	    	<div class="card mb-4 mb-lg-0" id="carte">
+	    		<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>"><img class="card-img-top" src="images/<?php echo $donnees['image']; ?>" alt="paysage_Alaska"></a>
       			<div class="card-body" id="card">
 					<p class="card-text" id="date_post"><?php echo $donnees['creation_date_fr'];?></p>
 					<h3 class="card-title">Billet simple pour l'Alaska</h3>
 					<h4 class="card-title"><?php echo $donnees['titre'];?></h4>
-					<p class="card-text"><?php echo substr($donnees['contenu'], 0, 100);?></p>						
+					<p class="card-text"><?php echo substr($donnees['contenu'], 0, 120);?></p>						
 					<p id="btn"><a href="index.php?action=showPost&id=<?php echo $donnees['id']?>" class="show_more">Découvrir</a>						
 					</p>
 				</div>

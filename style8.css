@@ -62,7 +62,9 @@ h2, #form_title{
     font-size: 0.88em;
 }
 
-
+img{
+    height: 100px !important;
+}
 /*Pied de page*/
 footer{  
     color: #33586e;

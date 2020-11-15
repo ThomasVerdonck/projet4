@@ -12,16 +12,21 @@ $css = 'style8.css';
 
 <section class="row">
 	<div class="col" class="border-primary">
-        <h2>Modifier un article</h2>   
-        <form action="index.php?action=updateChap" method="post">
+        <h2>Modifier un article</h2>         
+        <form enctype="multipart/form-data" action="index.php?action=updateChap" method="post">
             <div class="form-group">
                 <label for="title">Titre*</label><br />
                 <input type="text" class="form-control" name="title" value="<?php echo $modifChap['titre']; ?>"/>
             </div>  
             <div class="form-group">
+                <label for="file">Image*</label><br />
+                <img src="images/<?php echo $modifChap['image']; ?>" alt="<?php echo $modifChap['image']; ?>" class="img-fluid">
+                <input type="file" class="form-control" name="file"/>                
+            </div>
+            <div class="form-group">
                 <label for="content">Contenu*</label><br />
                 <textarea class="form-control" id="mytextarea" name="content"><?php echo $modifChap['contenu']; ?></textarea>
-            </div>
+            </div>            
             <input type="hidden" name="id" value="<?php echo $modifChap['id']; ?>"/>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" id="submit" value="Mettre à jour"/>

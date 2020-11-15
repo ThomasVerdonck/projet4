@@ -17,23 +17,26 @@ function getBdd(){
 function getLastPosts()
 {
 	$bdd = getBdd();
-	$reponse = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles ORDER BY creation_date DESC LIMIT 0, 3');
+	$reponse = $bdd->query('SELECT id, titre, contenu, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles ORDER BY creation_date DESC LIMIT 0, 3');
 	return $reponse;
 }
 
 function getPost($postId)//récupère un post précis en fonction de son ID
 {
     $bdd = getBdd();
-    $reponse = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM articles WHERE id = ?');
+    $reponse = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à 
+    %Hh%imin%ss\') AS creation_date_fr FROM articles WHERE id = ?');
     $reponse->execute(array($postId));
-    $post = $reponse->fetch(); //POURQUOI L28 ET 29???
+    $post = $reponse->fetch();
     return $post;
 }
 
 function getComments($postId)//récupère les commentaires associés à un ID de post
 {
     $bdd = getBdd();
-    $comments = $bdd->prepare('SELECT id, id_billet, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr, signalements FROM commentaires WHERE id_billet = ? ORDER BY date_commentaire DESC');
+    $comments = $bdd->prepare('SELECT id, id_billet, auteur, commentaire, DATE_FORMAT(date_commentaire, 
+    \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr, signalements FROM commentaires WHERE id_billet = ? 
+    ORDER BY date_commentaire DESC');
     $comments->execute(array($postId));
     return $comments;
 }
@@ -95,7 +98,7 @@ function updateAdminChap($id){
 	return $reponse;
 }
 
-// QUAND LE VISITEUR SIGNALE UN COMMENTAIRE (2 fonctions)
+// QUAND LE VISITEUR SIGNALE UN COMMENTAIRE
 function reportedCom($id){
 	$bdd = getBdd();
 	$reponse = $bdd->prepare('UPDATE commentaires SET signalements = 1 WHERE id = ?');

@@ -37,53 +37,85 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'connection') {
           require('vue/connection.php');      
     }
-    elseif ($_GET['action'] == 'connect') {
-        addUser($_POST['pseudo'], $_POST['password']);
+    elseif ($_GET['action'] == 'connect') {        
+        connectAdmin($_POST['pseudo'], $_POST['password']);        
     }
     elseif ($_GET['action'] == 'dashboard') {
-        require('vue/dashboard.php');
+        if(isset($_SESSION['pseudo'])){
+            require('vue/dashboard.php');
+        }
+        else{
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
+        }
     }
     elseif ($_GET['action'] == 'disconnect') {
         disconnect();
     }
     elseif ($_GET['action'] == 'listAllPostsAdmin') {
-        allPostsAdmin();
+        if(isset($_SESSION['pseudo'])){
+            allPostsAdmin();
+        }
+        else{
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
+        }
     }
     elseif ($_GET['action'] == 'create_post') {
-        if (isset($_SESSION['pseudo'])) {
+        if(isset($_SESSION['pseudo'])){
             require('vue/create_post.php');
-        }        
+        }
+        else{
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
+        }    
     }
-    elseif ($_GET['action'] == 'addChap') {        
+    elseif ($_GET['action'] == 'addChap') {
+        if(isset($_SESSION['pseudo'])){       
             if (!empty($_POST['title']) && !empty($_POST['content'])) {
                 addChap($_POST['title'], $_POST['content']);
             }
             else {
                     echo 'Erreur : tous les champs ne sont pas remplis !';
             }
-    }
-    elseif ($_GET['action'] == 'suppChap') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $id = $_GET['id'];
-            suppChap($id);
         }
         else{
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
+        }
+    }
+    elseif ($_GET['action'] == 'suppChap') {
+        if(isset($_SESSION['pseudo'])){
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                suppChap($id);
+            }
+            else{
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
+        }
+        else{
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
         }
     }
     elseif ($_GET['action'] === 'modifChap') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $id = $_GET['id'];
-            modifChap($id);
+        if(isset($_SESSION['pseudo'])){
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                modifChap($id);
+            }
+            else{
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
         }
         else{
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
         }
-
     }
     elseif ($_GET['action'] === 'updateChap') {
-        $id = $_POST['id'];
-        updateChap($id);
+        if(isset($_SESSION['pseudo'])){
+            $id = $_POST['id'];
+            updateChap($id);
+        }
+        else{
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
+        }
     }
     // signaler un commentaire
     elseif ($_GET['action'] === 'getReportedComment') {
@@ -97,26 +129,40 @@ if (isset($_GET['action'])) {
     }
     //Gérer les commentaires signalés
     elseif ($_GET['action'] === 'manageComments') {
-        allReportedComments();
+        if(isset($_SESSION['pseudo'])){
+            allReportedComments();
+        }
+        else{
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
+        }
     }
 
     elseif ($_GET['action'] === 'suppCom') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $id = $_GET['id'];
-            suppCom($id);
+        if(isset($_SESSION['pseudo'])){
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                suppCom($id);
+            }
+            else{
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
         }
         else{
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
         }
     }
-
     elseif ($_GET['action'] === 'letCom') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $id = $_GET['id'];
-            letCom($id);
+        if(isset($_SESSION['pseudo'])){
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                letCom($id);
+            }
+            else{
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
         }
         else{
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            echo "Vous n'avez pas le droit d'accéder à cette page.";
         }
     }
 }

@@ -25,8 +25,8 @@
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
-						<div id="navbarSupportedContent" class="collapse navbar-collapse">
-					        <ul class="navbar-nav mr-auto">
+						<div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-end">
+					        <ul class="navbar-nav">
 				            	<li class="nav-item"><a class="nav-link" href="index.php?action=listLastPosts">Accueil</a></li>
 				            	<li class="nav-item"><a class="nav-link" href="index.php?action=listAllPosts">Episodes</a></li>
 				            	<li class="nav-item"><a class="nav-link" href="index.php?action=JeanForteroche">À propos</a></li>

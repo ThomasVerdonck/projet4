@@ -14,8 +14,8 @@ $css = 'style2.css'; ?>
                 </h2>    
                 <h3><em>le <?php echo htmlspecialchars($post['creation_date_fr']); ?></em>
                 </h3>
-                <img class="card-img-top" src="images/chiens_de_traineau.jpg" alt="paysage_Alaska">
-                <p id="content"><?php echo htmlspecialchars($post['contenu']);?></p>
+                <img class="card-img-top" src="images/<?php echo $post['image']; ?>" >
+                <p id="content"><?php echo $post['contenu'];?></p>
             </div>
         </div>      
 
@@ -26,12 +26,23 @@ $css = 'style2.css'; ?>
                 // Affichage des commentaires
                 while ($comment = $comments->fetch()){
                 ?>
-                    <div class="col-12">
+                    <div class="col-12">                        
                         <p class="comment_author"><?php echo htmlspecialchars($comment['auteur']); ?></p>
                         <p class="comment_date">le <?php echo htmlspecialchars($comment['date_commentaire_fr']); ?></p>
                         <p><?php echo nl2br(htmlspecialchars($comment['commentaire'])); ?></p>
+                        <?php 
+                            if($comment['signalements'] > 0){
+                        ?>
+                        <p class="text-danger">Ce commentaire est en cours de modération.</p>
+                        <?php
+                            }
+                            else{
+                        ?>
                         <button type="button" class="btn btn-danger" name="signal_comment"><a href="index.php?action=getReportedComment&id=<?php echo $comment['id'] ?>&postId=<?php echo $post['id'] ?>">Signaler ce commentaire</a>
                         </button>
+                        <?php
+                            }
+                        ?>                        
                     </div>
                     <hr>
                 <?php
