@@ -43,6 +43,7 @@ class CommentManager extends Manager
         $resultat = $reponse->fetch();
         return $resultat;
     }
+    
     // REMETTRE LE COMMENTAIRE SIGNALE
     public function adminLetCom($id){
         $bdd = $this->getBdd();

@@ -13,7 +13,7 @@ while ($donnees = $allPosts->fetch())//la variable $lastPosts est automatiquemen
 ?>			
 	<div class="col-12 col-md-4 my-3">
 		<div class="card mb-4 mb-lg-0" id="carte">
-    		<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>"><img class="card-img-top" src="images/<?php echo $donnees['image']; ?>" alt="paysage_Alaska"></a>
+    		<a href="index.php?action=showPost&id=<?php echo $donnees['id']?>"><img class="card-img-top" src="images/<?php echo $donnees['image']; ?>" alt="<?php echo $donnees['image']; ?>"></a>
   			<div class="card-body" id="card">
 				<p class="card-text" id="date_post"><?php echo $donnees['creation_date_fr'];?></p>
 				<h3 class="card-title">Billet simple pour l'Alaska</h3>

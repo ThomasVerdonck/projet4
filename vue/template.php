@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="<?php echo $css;?>"/>
-		<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css"/>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<script src="https://cdn.tiny.cloud/1/cfos1nec3uc2llda2z38zfjqrwqe6su7a9ld9xlnls6flfwg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<link rel="stylesheet" href="<?php echo $css;?>"/>
+		<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css"/>
 		<script>
 	      tinymce.init({
 	        selector: '#mytextarea'

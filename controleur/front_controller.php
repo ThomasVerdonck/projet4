@@ -1,13 +1,11 @@
 <?php
-//On charge le fichier du modèle:
-require('modele/model.php');
 require('modele/PostManager.php');
 require('modele/CommentManager.php');
 
 function listLastPosts(){
     $postManager = new PostManager();
-    $lastPosts = $postManager->getLastPosts();//On appelle la fonction getLastPosts qui se trouve dans 
-    //model.php, et on récupère la liste des articles dans la variable $lastPosts.
+    $lastPosts = $postManager->getLastPosts();/*On appelle la fonction getLastPosts qui se trouve dans 
+    le modèle, et on récupère la liste des articles dans la variable $lastPosts.*/
     require('vue/accueil.php');
 }
 
@@ -21,25 +19,21 @@ function post($id){
 
 function listAllPosts(){
     $postManager = new PostManager();
-    $allPosts = $postManager->getAllPosts();//On appelle la fonction getAllPosts qui se trouve dans model.php, et on 
-    //récupère la liste des articles dans la variable $allPosts.
+    $allPosts = $postManager->getAllPosts();
     require('vue/Episodes.php');
 }
 
-//Pour ajouter des commentaires, le contrôleur récupère les informations dont on a besoin (id du billet, 
-//auteur, commentaire) et les transmet au modèle.
+/*Pour ajouter des commentaires, le contrôleur récupère les informations dont on a besoin (id du billet, 
+auteur, commentaire) et les transmet au modèle.*/
 function addComment($postId, $author, $comment){
     $commentManager = new CommentManager();
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
-//On teste le retour de la requête. Normalement, celle-ci renvoie le nombre de lignes impactées par la requête ou
-//"false" s'il y a eu une erreur. On teste donc s'il y a eu une erreur, et on arrête tout (avec un die) si 
-//jamais il y a eu un souci.
     if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
-// Si tout va bien, il n'y a aucune page à afficher. Les données ont été insérées, on redirige donc le visiteur 
-// vers la page du billet pour qu'il puisse voir son beau commentaire qui vient d'être inséré.
+/* Si tout va bien, il n'y a aucune page à afficher. Les données ont été insérées, on redirige donc le visiteur 
+vers la page du billet pour qu'il puisse voir son commentaire qui vient d'être inséré.*/
         header('Location: index.php?action=showPost&id=' . $postId);
     }
 }
