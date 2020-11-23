@@ -65,10 +65,3 @@ footer{
 #merci, #openclass{
     font-weight: bold;
 }
-
-#bg-footer{
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-}

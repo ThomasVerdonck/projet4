@@ -21,6 +21,10 @@ $css = 'style5.css';
 	            <input type="password" class="password" name="password" required></input>
 	        </div>
 	        <div class="labels">
+	            <label for="remember">Se souvenir de moi</label>
+	            <input type="checkbox" id="remember" name="remember">
+	        </div>
+	        <div class="labels">
 	            <input type="submit" name="submit" id="submit" value="Se connecter"/>
 	        </div>
 	    </form>

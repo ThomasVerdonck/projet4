@@ -37,7 +37,8 @@ class PostManager extends Manager
     //POUR CREER UN ARTICLE
     public function adminAddChap($title, $content, $fileName){
         $bdd = $this->getBdd();
-        $reponse = $bdd->prepare('INSERT INTO articles(titre, contenu, image, creation_date) VALUES(?, ?, ?, NOW())');
+        $reponse = $bdd->prepare('INSERT INTO articles(titre, contenu, image, creation_date) 
+        VALUES(?, ?, ?, NOW())');
         $addChap = $reponse->execute(array($title, $content, $fileName));
         return $addChap;
     }
